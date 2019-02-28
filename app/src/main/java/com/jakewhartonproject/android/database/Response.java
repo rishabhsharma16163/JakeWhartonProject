@@ -37,7 +37,11 @@ public class Response extends BaseObservable {
     @ColumnInfo(name = "watchersCount")
     private String watchersCount;
 
-    public Response(int id, String name, String description, String language, String openIssues, String watchersCount)
+    @NonNull
+    @ColumnInfo(name = "avatar_url")
+    private String avatar_url;
+
+    public Response(int id, String name, String description, String language, String openIssues, String watchersCount, String avatar_url)
     {
         this.id = id;
         this.name = name;
@@ -45,6 +49,7 @@ public class Response extends BaseObservable {
         this.language = language;
         this.openIssues = openIssues;
         this.watchersCount = watchersCount;
+        this.avatar_url = avatar_url;
     }
 
     public String getName() {
@@ -98,5 +103,14 @@ public class Response extends BaseObservable {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @NonNull
+    public String getAvatar_url() {
+        return avatar_url;
+    }
+
+    public void setAvatar_url(@NonNull String avatar_url) {
+        this.avatar_url = avatar_url;
     }
 }

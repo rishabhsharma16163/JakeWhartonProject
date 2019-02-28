@@ -3,4 +3,5 @@
 
     <string name="no_description">No Description</string>
     <string name="offline_data">Offline Data!!</string>
+    <string name="no_network">No Network Connection!!</string>
 </resources>

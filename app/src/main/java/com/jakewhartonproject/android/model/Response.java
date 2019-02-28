@@ -40,13 +40,18 @@ public class Response extends BaseObservable {
     @Expose
     private String watchersCount;
 
-    public Response(String name, String description, String language, String openIssues, String watchersCount)
+    @SerializedName("owner")
+    @Expose
+    private Owner owner;
+
+    public Response(String name, String description, String language, String openIssues, String watchersCount, Owner owner)
     {
         this.name = name;
         this.description = description;
         this.language = language;
         this.openIssues = openIssues;
         this.watchersCount = watchersCount;
+        this.owner = owner;
     }
 
     public String isName() {
@@ -104,5 +109,13 @@ public class Response extends BaseObservable {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Owner getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Owner owner) {
+        this.owner = owner;
     }
 }

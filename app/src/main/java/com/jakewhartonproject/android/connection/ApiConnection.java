@@ -13,7 +13,8 @@ import io.reactivex.Observable;
 public class ApiConnection {
 
     public static Observable<ArrayList<Response>> getGitHubResponse(Context context, int pageNo) {
-        return RetrofitClient.getClient(context).create(ApiInterface.class).getGitHubResponse(pageNo, ApplicationConstant.PER_PAGE, "d25b45eedcb46fc4ba7b5a263925b35afd3ba841");
+//        return RetrofitClient.getClient(context).create(ApiInterface.class).getGitHubResponse(pageNo, ApplicationConstant.PER_PAGE, "d25b45eedcb46fc4ba7b5a263925b35afd3ba841");
+        return RetrofitClient.getClient(context).create(ApiInterface.class).getGitHubResponse(pageNo, ApplicationConstant.PER_PAGE);
     }
 
 }

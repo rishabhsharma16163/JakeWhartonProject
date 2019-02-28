@@ -34,7 +34,7 @@ public abstract class ResponseDatabase extends RoomDatabase {
     public void addResponseList(ArrayList<Response> responses, Context context) {
         getDatabase(context);
         for (Response response : responses) {
-            com.jakewhartonproject.android.database.Response r = new com.jakewhartonproject.android.database.Response(response.getId(), response.isName(), response.getDescription(), response.getLanguage(), response.getOpenIssues(), response.getWatchersCount());
+            com.jakewhartonproject.android.database.Response r = new com.jakewhartonproject.android.database.Response(response.getId(), response.isName(), response.getDescription(), response.getLanguage(), response.getOpenIssues(), response.getWatchersCount(), response.getOwner().getAvatarUrl());
             INSTANCE.gitDao().insert(r);
         }
     }

@@ -14,6 +14,7 @@ import com.jakewhartonproject.android.connection.ApiConnection;
 import com.jakewhartonproject.android.constant.ApplicationConstant;
 import com.jakewhartonproject.android.database.ResponseDatabase;
 import com.jakewhartonproject.android.databinding.ActivityMainBinding;
+import com.jakewhartonproject.android.model.Owner;
 import com.jakewhartonproject.android.model.Response;
 
 import java.util.ArrayList;
@@ -41,6 +42,11 @@ public class MainActivity extends BaseActivity {
             if (responseDatabase.gitDao().getAllRepos() != null && responseDatabase.gitDao().getAllRepos().size() > 0) {
                 setData(responseDatabase.gitDao().getAllRepos());
             }
+            else
+            {
+                mBinding.setNetworkError(true);
+                mBinding.setIsLoading(false);
+            }
         }
 
     }
@@ -52,7 +58,7 @@ public class MainActivity extends BaseActivity {
         ArrayList<Response> list = new ArrayList<>();
 
         for (com.jakewhartonproject.android.database.Response response : allRepos) {
-            Response response1 = new Response(response.getName(), response.getDescription(), response.getLanguage(), response.getOpenIssues(), response.getWatchersCount());
+            Response response1 = new Response(response.getName(), response.getDescription(), response.getLanguage(), response.getOpenIssues(), response.getWatchersCount(), new Owner(response.getAvatar_url()));
             list.add(response1);
         }
 

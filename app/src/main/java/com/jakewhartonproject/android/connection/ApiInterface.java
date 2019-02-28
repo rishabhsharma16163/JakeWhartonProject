@@ -21,5 +21,10 @@ public interface ApiInterface {
 
     );
 
+    @GET(GITHUB_API)
+    Observable<ArrayList<Response>> getGitHubResponse(
+            @Query("page") int page,
+            @Query("per_page") int perPage
+    );
 
 }
